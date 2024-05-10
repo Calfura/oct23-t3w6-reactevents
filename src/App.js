@@ -23,7 +23,11 @@ class App extends React.Component {
   }
 
   decreaseNumber(){
+    if (this.state.numberOfPokemonToShow === 0){
+      // do nothing
+    } else {
     this.setState({numberOfPokemonToShow: this.state.numberOfPokemonToShow - 1});
+    };
   }
 
   render(){
@@ -40,7 +44,8 @@ class App extends React.Component {
 
         {/* Create an array of size {numberOfPokemonToShow}, give each element in the array a value of null */}
         {/* For each item in the array, render a HTML element (eg, a H1) */}
-        {Array(this.state.numberOfPokemonToShow).fill(null).map((element, index) => { return <PokemonCard />})}
+        {Array(this.state.numberOfPokemonToShow).fill(null).map((element, index) => { return <PokemonCard key={index} />}
+      )}
 
       </div>
     );
